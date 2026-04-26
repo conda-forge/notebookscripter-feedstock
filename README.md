@@ -1,13 +1,17 @@
-About notebookscripter
-======================
+About notebookscripter-feedstock
+================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/notebookscripter-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/breathe/NotebookScripter
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
-
 Summary: Expose ipython jupyter notebooks as callable functions.  More info here https://github.com/breathe/NotebookScripter
+
+Development: https://github.com/breathe/NotebookScripter
+
+Documentation: https://github.com/breathe/NotebookScripter
 
 Expose ipython jupyter notebooks as callable functions.  More info here https://github.com/breathe/NotebookScripter
 
@@ -20,8 +24,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6823&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/notebookscripter-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6823&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/notebookscripter-feedstock?branchName=main">
       </a>
     </td>
   </tr>
@@ -41,25 +45,52 @@ Installing `notebookscripter` from the `conda-forge` channel can be achieved by 
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `notebookscripter` can be installed with:
+Once the `conda-forge` channel has been enabled, `notebookscripter` can be installed with `conda`:
 
 ```
 conda install notebookscripter
 ```
 
-It is possible to list all of the versions of `notebookscripter` available on your platform with:
+or with `mamba`:
+
+```
+mamba install notebookscripter
+```
+
+It is possible to list all of the versions of `notebookscripter` available on your platform with `conda`:
 
 ```
 conda search notebookscripter --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search notebookscripter --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search notebookscripter --channel conda-forge
+
+# List packages depending on `notebookscripter`:
+mamba repoquery whoneeds notebookscripter --channel conda-forge
+
+# List dependencies of `notebookscripter`:
+mamba repoquery depends notebookscripter --channel conda-forge
 ```
 
 
 About conda-forge
 =================
 
-[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
+[![Powered by
+NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](https://numfocus.org)
 
 conda-forge is a community-led conda channel of installable packages.
 In order to provide high-quality builds, the process has been automated into the
@@ -69,10 +100,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.org/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
@@ -111,9 +144,9 @@ build distinct package versions.
 
 In order to produce a uniquely identifiable distribution:
  * If the version of a package **is not** being increased, please add or increase
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string).
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string).
  * If the version of a package **is** being increased, please remember to return
-   the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
+   the [``build/number``](https://docs.conda.io/projects/conda-build/en/latest/resources/define-metadata.html#build-number-and-string)
    back to 0.
 
 Feedstock Maintainers
